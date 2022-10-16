@@ -20,6 +20,13 @@ struct Node * insert(struct Node *head ,int data )
     ptr->data=data;
     return ptr;
 }
+//  to delete a node at the begging.
+void delete_start(){
+    NODE *temp = head;
+    head = head->next;
+    free(temp);
+}
+
 
 int main()
 {
