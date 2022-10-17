@@ -1,0 +1,61 @@
+#include <stdio.h>
+// #define 10 maxsize;
+
+void Push(int stck[],int *top,int item){
+    if(*top == 9){
+        printf("OVERFLOW\n");
+        // return;
+    }
+    *top = *top +1;
+    stck[*top] = item;
+    return;
+}
+void traverse(int stck[],int top){
+    if(top == -1)
+    {
+        printf("Underflow");
+        return;
+    }
+    int to = top;
+    while(to != -1){
+        printf("%d ",stck[to]);
+        to = to-1;
+    }
+    return;
+}
+int pop(int stck[],int *top){
+    int item;
+    if(*top == -1)
+    {
+        printf("Underflow");
+        return -1;
+    }
+    item = stck[*top];
+    *top = *top -1;
+    return item;
+}
+
+int main()
+{
+    int stck[10];
+    int top =-1;
+    Push(stck,&top,3);
+    Push(stck, &top, 4);
+    Push(stck,&top,6);
+    Push(stck,&top,9);
+    Push(stck,&top,8);
+    Push(stck,&top,0);
+    Push(stck,&top,5);
+    Push(stck,&top,1);
+    Push(stck,&top,2);
+    Push(stck,&top,10);
+    traverse(stck,top);
+    printf("\n");
+    int a = pop(stck,&top);
+    printf("Enter the pop element: %d\n",a);
+    printf("Enter the element of the stack after pop: ");
+    traverse(stck,top);
+    
+
+    return 0;
+}
